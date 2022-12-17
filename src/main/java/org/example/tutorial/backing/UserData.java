@@ -1,6 +1,7 @@
 package org.example.tutorial.backing;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.example.tutorial.model.Author;
 import org.example.tutorial.service.AuthorService;
 import org.example.tutorial.service.MessageService;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 import java.util.*;
 
 @Data
+@NoArgsConstructor
 public class UserData implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,11 +26,15 @@ public class UserData implements Serializable {
 
     private Map<String,Object> countries = Map.of("English", Locale.ENGLISH, "French", Locale.FRENCH);
 
-    @Autowired
     private MessageService messageService;
 
-    @Autowired
     private AuthorService authorService;
+
+    @Autowired
+    public UserData(MessageService messageService, AuthorService authorService) {
+        this.messageService = messageService;
+        this.authorService = authorService;
+    }
 
     public String getWelcomeMessage() {
         return "Hello " + name;

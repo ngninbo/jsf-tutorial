@@ -52,4 +52,18 @@
             <value>#{connectionUtils}</value>
         </managed-property>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>messageService</managed-bean-name>
+        <managed-bean-class>org.example.tutorial.backing.MessageServiceImpl</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+        <managed-property>
+            <property-name>message</property-name>
+            <value>#{message}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>message</managed-bean-name>
+        <managed-bean-class>org.example.tutorial.model.Message</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+    </managed-bean>
 </faces-config>

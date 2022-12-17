@@ -28,9 +28,7 @@ public class UserDataTest {
     public void setUp() {
         messageService = mock(MessageService.class);
         authorService = mock(AuthorService.class);
-        cut = new UserData();
-        cut.setMessageService(messageService);
-        cut.setAuthorService(authorService);
+        cut = new UserData(messageService, authorService);
     }
 
     @Test

@@ -1,20 +1,24 @@
 package org.example.tutorial.backing;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.example.tutorial.model.Message;
 import org.example.tutorial.service.MessageService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Data
+@NoArgsConstructor
 public class MessageServiceImpl implements MessageService {
 
-    private String message;
+    private Message message;
 
-    @Override
-    public String getGreetingMessage() {
-        return message;
+    @Autowired
+    public MessageServiceImpl(Message message) {
+        this.message = message;
     }
 
     @Override
-    public void setGreetingMessage(String msg) {
-        this.setMessage(msg);
+    public String getGreetingMessage() {
+        return message.getMessage();
     }
 }

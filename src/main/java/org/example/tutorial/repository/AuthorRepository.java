@@ -1,6 +1,7 @@
 package org.example.tutorial.repository;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.example.tutorial.model.Author;
 import org.example.tutorial.utils.ConnectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,15 @@ import java.util.List;
 
 
 @Data
+@NoArgsConstructor
 public class AuthorRepository {
 
-    @Autowired
     private ConnectionUtils connectionUtils;
+
+    @Autowired
+    public AuthorRepository(ConnectionUtils connectionUtils) {
+        this.connectionUtils = connectionUtils;
+    }
 
     public List<Author> findAll() {
 
