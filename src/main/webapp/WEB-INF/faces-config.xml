@@ -1,0 +1,55 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<faces-config
+        xmlns = "http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation = "http://java.sun.com/xml/ns/javaee
+   http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+        version = "2.0">
+
+    <application>
+        <variable-resolver>
+            org.springframework.web.jsf.DelegatingVariableResolver
+        </variable-resolver>
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>fr</supported-locale>
+        </locale-config>
+
+        <resource-bundle>
+            <base-name>org.example.tutorial.messages</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+
+    <managed-bean>
+        <managed-bean-name>userData</managed-bean-name>
+        <managed-bean-class>org.example.tutorial.backing.UserData</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>messageService</property-name>
+            <value>#{messageService}</value>
+        </managed-property>
+        <managed-property>
+            <property-name>authorService</property-name>
+            <value>#{authorService}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>authorService</managed-bean-name>
+        <managed-bean-class>org.example.tutorial.backing.AuthorServiceImpl</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>authorRepository</property-name>
+            <value>#{authorRepository}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>authorRepository</managed-bean-name>
+        <managed-bean-class>org.example.tutorial.repository.AuthorRepository</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+        <managed-property>
+            <property-name>connectionUtils</property-name>
+            <value>#{connectionUtils}</value>
+        </managed-property>
+    </managed-bean>
+</faces-config>
