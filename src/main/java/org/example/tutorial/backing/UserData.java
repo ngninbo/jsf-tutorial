@@ -24,7 +24,7 @@ public class UserData implements Serializable {
 
     private String locale;
 
-    private Map<String,Object> countries = Map.of("English", Locale.ENGLISH, "French", Locale.FRENCH);
+    private Map<String,Locale> countries = Map.of("English", Locale.ENGLISH, "French", Locale.FRENCH);
 
     private MessageService messageService;
 
@@ -48,16 +48,13 @@ public class UserData implements Serializable {
         return authorService.getAuthors();
     }
 
-    //value change event listener
     public void localeChanged(ValueChangeEvent e) {
         String newLocaleValue = e.getNewValue().toString();
 
-        for (Map.Entry<String, Object> entry : countries.entrySet()) {
-
-            if(entry.getValue().toString().equals(newLocaleValue)) {
-                FacesContext.getCurrentInstance()
-                        .getViewRoot().setLocale((Locale) entry.getValue());
-            }
-        }
+        countries.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().toString().equals(newLocaleValue))
+                .findFirst()
+                .ifPresent(entry -> FacesContext.getCurrentInstance().getViewRoot().setLocale(entry.getValue()));
     }
 }

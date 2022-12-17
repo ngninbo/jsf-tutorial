@@ -2,7 +2,6 @@ package org.example.tutorial.backing;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.tutorial.model.Message;
 import org.example.tutorial.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -10,7 +10,5 @@
     <bean class="org.example.tutorial.backing.AuthorServiceImpl" id="authorService"/>
     <bean class="org.example.tutorial.repository.AuthorRepository" id="authorRepository"/>
     <bean class="org.example.tutorial.utils.ConnectionUtils" id="connectionUtils"/>
-    <bean id="message" class="org.example.tutorial.model.Message">
-        <property name = "message" value = "Hello World!" />
-    </bean>
+    <bean id="message" class="org.example.tutorial.backing.Message"/>
 </beans>

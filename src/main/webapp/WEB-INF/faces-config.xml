@@ -63,7 +63,7 @@
     </managed-bean>
     <managed-bean>
         <managed-bean-name>message</managed-bean-name>
-        <managed-bean-class>org.example.tutorial.model.Message</managed-bean-class>
+        <managed-bean-class>org.example.tutorial.backing.Message</managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
 </faces-config>

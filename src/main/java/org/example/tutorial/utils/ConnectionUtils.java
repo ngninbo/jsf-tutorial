@@ -1,9 +1,11 @@
 package org.example.tutorial.utils;
 
+import javax.faces.bean.ApplicationScoped;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+@ApplicationScoped
 public class ConnectionUtils {
 
     public Connection getConnection() {

@@ -1,7 +1,6 @@
 package org.example.tutorial.backing;
 
 import lombok.Setter;
-import org.example.tutorial.model.Message;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
