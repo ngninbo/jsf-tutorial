@@ -8,10 +8,11 @@ This repository contains code implemented following this [tutorial](https://www.
 - Tomcat 9
 - Maven
 - Java 11 or later
+- postgresql
 
 ## Get Started
 
-- Install and start tomcat
+- Start tomcat
 
 - Build the application with maven, e.g.
 
@@ -19,6 +20,6 @@ This repository contains code implemented following this [tutorial](https://www.
 mvn clean package
 ```
 
-- Then copy the file `tutorial.war` into the webapps folder of tomcat distribution
+- Then copy the file `tutorial.war` into the web apps folder of our tomcat distribution
 
 The URL for accessing the application may look like this: http://localhost:8080/tutorial/home.jsf
