@@ -13,6 +13,7 @@
         <locale-config>
             <default-locale>en</default-locale>
             <supported-locale>fr</supported-locale>
+            <supported-locale>de</supported-locale>
         </locale-config>
 
         <resource-bundle>

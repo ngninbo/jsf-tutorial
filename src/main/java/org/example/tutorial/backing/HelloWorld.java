@@ -1,6 +1,7 @@
 package org.example.tutorial.backing;
 
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -8,6 +9,7 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean(name = "helloWorld", eager = true)
 @RequestScoped
+@Slf4j
 public class HelloWorld {
 
     @Setter
@@ -16,7 +18,7 @@ public class HelloWorld {
     private String message;
 
     public HelloWorld() {
-        System.out.println("HelloWorld started!");
+        logger.info("HelloWorld started!");
     }
 
     public String getMessage() {

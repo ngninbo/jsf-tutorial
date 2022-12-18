@@ -2,6 +2,7 @@ package org.example.tutorial.repository;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.tutorial.model.Author;
 import org.example.tutorial.utils.ConnectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Data
 @NoArgsConstructor
+@Slf4j
 public class AuthorRepository {
 
     private ConnectionUtils connectionUtils;
@@ -26,6 +27,8 @@ public class AuthorRepository {
     }
 
     public List<Author> findAll() {
+
+        logger.info("Fetch authors from database...");
 
         String stm = "Select * from authors";
         List<Author> records = new ArrayList<>();
@@ -41,8 +44,9 @@ public class AuthorRepository {
                 author.setName(rs.getString(2));
                 records.add(author);
             }
+            logger.info("Fetching authors from database completed.");
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Fetching authors from database failed!:", e);
         }
         return records;
     }
