@@ -6,6 +6,7 @@ import org.example.tutorial.model.Author;
 import org.example.tutorial.utils.ConnectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,15 +27,13 @@ public class AuthorRepository {
 
     public List<Author> findAll() {
 
-        ResultSet rs;
-        PreparedStatement pst;
         String stm = "Select * from authors";
         List<Author> records = new ArrayList<>();
 
-        try {
-            pst = connectionUtils.getConnection().prepareStatement(stm);
+        try (Connection connection = connectionUtils.getConnection()) {
+            PreparedStatement pst = connection.prepareStatement(stm);
             pst.execute();
-            rs = pst.getResultSet();
+            ResultSet rs = pst.getResultSet();
 
             while(rs.next()) {
                 Author author = new Author();
