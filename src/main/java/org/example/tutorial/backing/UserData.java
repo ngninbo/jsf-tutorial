@@ -24,7 +24,7 @@ public class UserData implements Serializable {
 
     private String locale;
 
-    private Map<String,Locale> countries = Map.of("English", Locale.ENGLISH, "French", Locale.FRENCH);
+    private Map<String,Locale> countries = Map.of("English", Locale.ENGLISH, "French", Locale.FRENCH, "German", Locale.GERMAN);
 
     private MessageService messageService;
 
