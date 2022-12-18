@@ -39,9 +39,11 @@ public class AuthorRepository {
             ResultSet rs = pst.getResultSet();
 
             while(rs.next()) {
-                Author author = new Author();
-                author.setId(rs.getInt(1));
-                author.setName(rs.getString(2));
+                Author author = Author.builder()
+                        .id(rs.getInt(1))
+                        .name(rs.getString(2))
+                        .build();
+
                 records.add(author);
             }
             logger.info("Fetching authors from database completed.");

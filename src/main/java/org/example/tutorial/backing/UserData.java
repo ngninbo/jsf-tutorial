@@ -24,11 +24,16 @@ public class UserData implements Serializable {
 
     private String locale;
 
-    private Map<String,Locale> countries = Map.of("English", Locale.ENGLISH, "French", Locale.FRENCH, "German", Locale.GERMAN);
+    private Map<String, Locale> countries = Map.of(
+            "English", Locale.ENGLISH,
+            "French", Locale.FRENCH,
+            "German", Locale.GERMAN);
 
     private MessageService messageService;
 
     private AuthorService authorService;
+
+    private List<Author> authors = new ArrayList<>();
 
     @Autowired
     public UserData(MessageService messageService, AuthorService authorService) {
@@ -45,7 +50,12 @@ public class UserData implements Serializable {
     }
 
     public List<Author> getAuthors() {
-        return authorService.getAuthors();
+
+        if (authors.isEmpty()) {
+            this.authors = authorService.getAuthors();
+        }
+
+        return authors;
     }
 
     public void localeChanged(ValueChangeEvent e) {

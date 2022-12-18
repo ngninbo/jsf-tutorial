@@ -25,7 +25,7 @@
     <managed-bean>
         <managed-bean-name>userData</managed-bean-name>
         <managed-bean-class>org.example.tutorial.backing.UserData</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
+        <managed-bean-scope>application</managed-bean-scope>
         <managed-property>
             <property-name>messageService</property-name>
             <value>#{messageService}</value>
@@ -38,7 +38,7 @@
     <managed-bean>
         <managed-bean-name>authorService</managed-bean-name>
         <managed-bean-class>org.example.tutorial.backing.AuthorServiceImpl</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
+        <managed-bean-scope>application</managed-bean-scope>
         <managed-property>
             <property-name>authorRepository</property-name>
             <value>#{authorRepository}</value>
@@ -47,7 +47,7 @@
     <managed-bean>
         <managed-bean-name>authorRepository</managed-bean-name>
         <managed-bean-class>org.example.tutorial.repository.AuthorRepository</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
+        <managed-bean-scope>application</managed-bean-scope>
         <managed-property>
             <property-name>connectionUtils</property-name>
             <value>#{connectionUtils}</value>
