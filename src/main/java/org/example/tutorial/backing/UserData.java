@@ -33,8 +33,6 @@ public class UserData implements Serializable {
 
     private AuthorService authorService;
 
-    private List<Author> authors = new ArrayList<>();
-
     @Autowired
     public UserData(MessageService messageService, AuthorService authorService) {
         this.messageService = messageService;
@@ -50,12 +48,11 @@ public class UserData implements Serializable {
     }
 
     public List<Author> getAuthors() {
+        return authorService.getAuthors();
+    }
 
-        if (authors.isEmpty()) {
-            this.authors = authorService.getAuthors();
-        }
-
-        return authors;
+    public Map<String, Locale> getCountries() {
+        return countries;
     }
 
     public void localeChanged(ValueChangeEvent e) {

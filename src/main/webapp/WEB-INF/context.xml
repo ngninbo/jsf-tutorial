@@ -1,4 +1,7 @@
-<Context>
+<Context
+        docBase="tutorial"
+        path="/tutorial"
+        reloadable="true">
 
     <Resource name="testdb" auth="Container"
               type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"

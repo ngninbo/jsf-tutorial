@@ -18,7 +18,7 @@
 
         <resource-bundle>
             <base-name>org.example.tutorial.messages</base-name>
-            <var>msg</var>
+            <var>i18n</var>
         </resource-bundle>
     </application>
 
